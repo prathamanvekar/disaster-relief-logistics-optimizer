@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Disaster Relief System - Dashboard</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="app-container">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="sidebar-header">
+          <h1>🚨 <span>Disaster Relief</span></h1>
+          <p>Logistics Optimization System</p>
+        </div>
+
+        <nav>
+          <div class="nav-section">
+            <div class="nav-section-title">Overview</div>
+            <a href="index.html" class="nav-link active">
+              <span class="icon">📊</span>
+              <span>Dashboard</span>
+            </a>
+          </div>
+
+          <div class="nav-section">
+            <div class="nav-section-title">Workflow</div>
+            <a href="predict.html" class="nav-link">
+              <span class="icon">🎯</span>
+              <span>Severity Prediction</span>
+              <span class="step-badge">Step&nbsp;1</span>
+            </a>
+            <a href="priority.html" class="nav-link">
+              <span class="icon">📋</span>
+              <span>Priority Ranking</span>
+              <span class="step-badge">Step&nbsp;2</span>
+            </a>
+            <a href="allocate.html" class="nav-link">
+              <span class="icon">📦</span>
+              <span>Resource Allocation</span>
+              <span class="step-badge">Step&nbsp;3</span>
+            </a>
+            <a href="routes.html" class="nav-link">
+              <span class="icon">🚚</span>
+              <span>Route Optimization</span>
+              <span class="step-badge">Step&nbsp;4</span>
+            </a>
+          </div>
+        </nav>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <div class="page-header">
+          <div class="breadcrumb">
+            <span>Home</span>
+            <span>/</span>
+            <span>Dashboard</span>
+          </div>
+          <h2>Dashboard Overview</h2>
+          <p>Monitor disaster relief operations and system status</p>
+        </div>
+
+        <!-- Stats Grid -->
+        <div class="stats-grid" id="stats-grid">
+          <div class="stat-card">
+            <div class="stat-icon blue">🚨</div>
+            <div class="stat-info">
+              <h3 id="stat-disasters">-</h3>
+              <p>Active Disasters</p>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon green">📍</div>
+            <div class="stat-info">
+              <h3 id="stat-areas">-</h3>
+              <p>Registered Areas</p>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon orange">🚚</div>
+            <div class="stat-info">
+              <h3 id="stat-vehicles">-</h3>
+              <p>Available Vehicles</p>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon purple">📦</div>
+            <div class="stat-info">
+              <h3 id="stat-resources">-</h3>
+              <p>Resource Types</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Start Workflow -->
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">Quick Start Workflow</h3>
+              <p class="card-subtitle">
+                Follow these steps to manage disaster relief
+              </p>
+            </div>
+          </div>
+
+          <div class="workflow-steps">
+            <div class="workflow-step" id="step-1">
+              <div class="step-circle">1</div>
+              <div class="step-text">
+                <strong>Predict Severity</strong>
+                <span>Analyze disaster impact</span>
+              </div>
+            </div>
+            <div class="workflow-step" id="step-2">
+              <div class="step-circle">2</div>
+              <div class="step-text">
+                <strong>Rank Priorities</strong>
+                <span>Identify critical areas</span>
+              </div>
+            </div>
+            <div class="workflow-step" id="step-3">
+              <div class="step-circle">3</div>
+              <div class="step-text">
+                <strong>Allocate Resources</strong>
+                <span>Distribute supplies</span>
+              </div>
+            </div>
+            <div class="workflow-step" id="step-4">
+              <div class="step-circle">4</div>
+              <div class="step-text">
+                <strong>Optimize Routes</strong>
+                <span>Plan deliveries</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="btn-group">
+            <a href="predict.html" class="btn btn-primary btn-lg">
+              🚀 Start New Relief Operation
+            </a>
+          </div>
+        </div>
+
+        <!-- Recent Disasters -->
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">Recent Disasters</h3>
+              <p class="card-subtitle">Latest recorded disaster events</p>
+            </div>
+            <a href="predict.html" class="btn btn-outline btn-sm">+ Add New</a>
+          </div>
+
+          <div class="table-container">
+            <table class="table" id="disasters-table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Type</th>
+                  <th>Location</th>
+                  <th>Severity</th>
+                  <th>Priority Score</th>
+                  <th>Status</th>
+                  <th>Created</th>
+                </tr>
+              </thead>
+              <tbody id="disasters-tbody">
+                <tr>
+                  <td colspan="7" class="text-center text-muted">Loading...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Resources Overview -->
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">Resources Overview</h3>
+              <p class="card-subtitle">Current resource inventory</p>
+            </div>
+          </div>
+
+          <div id="resources-grid" class="stats-grid">
+            <div class="loading">
+              <div class="spinner"></div>
+              <p>Loading resources...</p>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/dashboard.js"></script>
+  </body>
+</html>

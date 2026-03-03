@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resource Allocation - Disaster Relief System</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="app-container">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="sidebar-header">
+          <h1>🚨 <span>Disaster Relief</span></h1>
+          <p>Logistics Optimization System</p>
+        </div>
+
+        <nav>
+          <div class="nav-section">
+            <div class="nav-section-title">Overview</div>
+            <a href="index.html" class="nav-link">
+              <span class="icon">📊</span>
+              <span>Dashboard</span>
+            </a>
+          </div>
+
+          <div class="nav-section">
+            <div class="nav-section-title">Workflow</div>
+            <a href="predict.html" class="nav-link">
+              <span class="icon">🎯</span>
+              <span>Severity Prediction</span>
+              <span class="step-badge">Step&nbsp;1</span>
+            </a>
+            <a href="priority.html" class="nav-link">
+              <span class="icon">📋</span>
+              <span>Priority Ranking</span>
+              <span class="step-badge">Step&nbsp;2</span>
+            </a>
+            <a href="allocate.html" class="nav-link active">
+              <span class="icon">📦</span>
+              <span>Resource Allocation</span>
+              <span class="step-badge">Step&nbsp;3</span>
+            </a>
+            <a href="routes.html" class="nav-link">
+              <span class="icon">🚚</span>
+              <span>Route Optimization</span>
+              <span class="step-badge">Step&nbsp;4</span>
+            </a>
+          </div>
+        </nav>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <div class="page-header">
+          <div class="breadcrumb">
+            <span>Home</span>
+            <span>/</span>
+            <span>Resource Allocation</span>
+          </div>
+          <h2>📦 Step 3: Resource Allocation</h2>
+          <p>Allocate resources to affected areas based on priority</p>
+        </div>
+
+        <!-- Current Disaster Info -->
+        <div class="card" id="disaster-info">
+          <div class="loading">
+            <div class="spinner"></div>
+            <p>Loading disaster info...</p>
+          </div>
+        </div>
+
+        <!-- Ranked Areas Summary -->
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">Ranked Areas</h3>
+              <p class="card-subtitle">Areas requiring resource allocation</p>
+            </div>
+          </div>
+
+          <div id="ranked-areas-list">
+            <div class="loading">
+              <div class="spinner"></div>
+              <p>Loading ranked areas...</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Available Resources -->
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">Available Resources</h3>
+              <p class="card-subtitle">
+                Set the quantity of resources to distribute
+              </p>
+            </div>
+          </div>
+
+          <div id="resources-form">
+            <div class="loading">
+              <div class="spinner"></div>
+              <p>Loading resources...</p>
+            </div>
+          </div>
+
+          <div class="btn-group mt-3">
+            <button
+              class="btn btn-primary btn-lg"
+              id="allocate-btn"
+              onclick="allocateResources()"
+            >
+              📦 Allocate Resources
+            </button>
+          </div>
+        </div>
+
+        <!-- Allocation Results -->
+        <div id="allocation-result"></div>
+      </main>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/allocate.js"></script>
+  </body>
+</html>

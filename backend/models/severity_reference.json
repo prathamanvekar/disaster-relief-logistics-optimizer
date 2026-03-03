@@ -1,0 +1,25 @@
+{
+  "severity_levels": {
+    "0": {
+      "name": "Low",
+      "description": "Minimal impact, localized damage"
+    },
+    "1": {
+      "name": "Moderate",
+      "description": "Notable impact, some casualties"
+    },
+    "2": {
+      "name": "High",
+      "description": "Significant impact, many affected"
+    },
+    "3": {
+      "name": "Critical",
+      "description": "Catastrophic, massive casualties/damage"
+    }
+  },
+  "impact_score_thresholds": {
+    "low_max": 0.15,
+    "moderate_max": 0.3,
+    "high_max": 0.5
+  }
+}

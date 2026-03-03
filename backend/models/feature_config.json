@@ -1,0 +1,236 @@
+{
+  "feature_names": [
+    "subtype_encoded",
+    "region_encoded",
+    "month_sin",
+    "month_cos",
+    "magnitude_normalized",
+    "duration_normalized",
+    "year_normalized",
+    "type_Animal accident",
+    "type_Drought",
+    "type_Earthquake",
+    "type_Epidemic",
+    "type_Extreme temperature ",
+    "type_Flood",
+    "type_Fog",
+    "type_Glacial lake outburst",
+    "type_Impact",
+    "type_Insect infestation",
+    "type_Landslide",
+    "type_Mass movement (dry)",
+    "type_Storm",
+    "type_Volcanic activity",
+    "type_Wildfire",
+    "continent_Africa",
+    "continent_Americas",
+    "continent_Asia",
+    "continent_Europe",
+    "continent_Oceania"
+  ],
+  "numerical_features": [
+    "subtype_encoded",
+    "region_encoded",
+    "month_sin",
+    "month_cos",
+    "magnitude_normalized",
+    "duration_normalized",
+    "year_normalized"
+  ],
+  "disaster_type_columns": [
+    "type_Animal accident",
+    "type_Drought",
+    "type_Earthquake",
+    "type_Epidemic",
+    "type_Extreme temperature ",
+    "type_Flood",
+    "type_Fog",
+    "type_Glacial lake outburst",
+    "type_Impact",
+    "type_Insect infestation",
+    "type_Landslide",
+    "type_Mass movement (dry)",
+    "type_Storm",
+    "type_Volcanic activity",
+    "type_Wildfire"
+  ],
+  "continent_columns": [
+    "continent_Africa",
+    "continent_Americas",
+    "continent_Asia",
+    "continent_Europe",
+    "continent_Oceania"
+  ],
+  "disaster_types": [
+    "Drought",
+    "Earthquake",
+    "Volcanic activity",
+    "Mass movement (dry)",
+    "Storm",
+    "Flood",
+    "Epidemic",
+    "Landslide",
+    "Wildfire",
+    "Extreme temperature ",
+    "Fog",
+    "Insect infestation",
+    "Impact",
+    "Animal accident",
+    "Glacial lake outburst"
+  ],
+  "subtypes_by_type": {
+    "Drought": [
+      "Drought"
+    ],
+    "Earthquake": [
+      "Ground movement",
+      "Tsunami"
+    ],
+    "Volcanic activity": [
+      "Ash fall",
+      "Lava flow",
+      "Pyroclastic flow "
+    ],
+    "Mass movement (dry)": [
+      "Rockfall",
+      "Landslide",
+      "Avalanche",
+      "Subsidence"
+    ],
+    "Storm": [
+      "Tropical cyclone",
+      "Convective storm",
+      "Extra-tropical storm"
+    ],
+    "Flood": [
+      "Riverine flood",
+      "Coastal flood",
+      "Flash flood"
+    ],
+    "Epidemic": [
+      "Bacterial disease",
+      "Viral disease",
+      "Parasitic disease"
+    ],
+    "Landslide": [
+      "Avalanche",
+      "Landslide",
+      "Mudslide",
+      "Subsidence",
+      "Rockfall"
+    ],
+    "Wildfire": [
+      "Forest fire",
+      "Land fire (Brush, Bush, Pasture)"
+    ],
+    "Extreme temperature ": [
+      "Heat wave",
+      "Cold wave",
+      "Severe winter conditions"
+    ],
+    "Fog": [
+      "Unknown"
+    ],
+    "Insect infestation": [
+      "Locust",
+      "Grasshopper"
+    ],
+    "Impact": [
+      "Unknown"
+    ],
+    "Animal accident": [
+      "Unknown"
+    ],
+    "Glacial lake outburst": [
+      "Unknown"
+    ]
+  },
+  "regions": [
+    "Western Africa",
+    "Southern Asia",
+    "Central America",
+    "Northern America",
+    "Eastern Africa",
+    "South America",
+    "Western Europe",
+    "Eastern Asia",
+    "Caribbean",
+    "South-Eastern Asia",
+    "Northern Africa",
+    "Eastern Europe",
+    "Southern Europe",
+    "Melanesia",
+    "Australia and New Zealand",
+    "Polynesia",
+    "Northern Europe",
+    "Western Asia",
+    "Micronesia",
+    "Southern Africa",
+    "Middle Africa",
+    "Russian Federation",
+    "Central Asia"
+  ],
+  "continents": [
+    "Africa",
+    "Asia",
+    "Americas",
+    "Europe",
+    "Oceania"
+  ],
+  "subtype_classes": [
+    "Ash fall",
+    "Avalanche",
+    "Bacterial disease",
+    "Coastal flood",
+    "Cold wave",
+    "Convective storm",
+    "Drought",
+    "Extra-tropical storm",
+    "Flash flood",
+    "Forest fire",
+    "Grasshopper",
+    "Ground movement",
+    "Heat wave",
+    "Land fire (Brush, Bush, Pasture)",
+    "Landslide",
+    "Lava flow",
+    "Locust",
+    "Mudslide",
+    "Parasitic disease",
+    "Pyroclastic flow ",
+    "Riverine flood",
+    "Rockfall",
+    "Severe winter conditions",
+    "Subsidence",
+    "Tropical cyclone",
+    "Tsunami",
+    "Unknown",
+    "Viral disease"
+  ],
+  "region_classes": [
+    "Australia and New Zealand",
+    "Caribbean",
+    "Central America",
+    "Central Asia",
+    "Eastern Africa",
+    "Eastern Asia",
+    "Eastern Europe",
+    "Melanesia",
+    "Micronesia",
+    "Middle Africa",
+    "Northern Africa",
+    "Northern America",
+    "Northern Europe",
+    "Polynesia",
+    "Russian Federation",
+    "South America",
+    "South-Eastern Asia",
+    "Southern Africa",
+    "Southern Asia",
+    "Southern Europe",
+    "Western Africa",
+    "Western Asia",
+    "Western Europe"
+  ],
+  "num_numerical_features": 7
+}

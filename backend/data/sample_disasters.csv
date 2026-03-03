@@ -1,0 +1,101 @@
+Disaster Type,Disaster Subtype,Country,Region,Continent,Start Year,Start Month,Dis Mag Value,Dis Mag Scale,Total Deaths,Total Affected,Severity
+Drought,Drought,Cabo Verde,Western Africa,Africa,1900,,,Km2,11000.0,0.0,2
+Drought,Drought,India,Southern Asia,Asia,1900,,,Km2,1250000.0,0.0,2
+Earthquake,Ground movement,Guatemala,Central America,Americas,1902,4.0,8.0,Richter,2000.0,0.0,2
+Volcanic activity,Ash fall,Guatemala,Central America,Americas,1902,4.0,,,1000.0,0.0,1
+Volcanic activity,Ash fall,Guatemala,Central America,Americas,1902,10.0,,,6000.0,0.0,1
+Mass movement (dry),Rockfall,Canada,Northern America,Americas,1903,4.0,,,76.0,23.0,1
+Volcanic activity,Ash fall,Comoros (the),Eastern Africa,Africa,1903,,,,17.0,0.0,0
+Storm,Tropical cyclone,Bangladesh,Southern Asia,Asia,1904,11.0,,Kph,0.0,0.0,0
+Mass movement (dry),Rockfall,Canada,Northern America,Americas,1905,8.0,,,18.0,18.0,0
+Earthquake,Ground movement,India,Southern Asia,Asia,1905,4.0,8.0,Richter,20000.0,0.0,2
+Earthquake,Ground movement,Chile,South America,Americas,1906,8.0,8.0,Richter,20000.0,0.0,2
+Earthquake,Ground movement,Colombia,South America,Americas,1906,1.0,9.0,Richter,400.0,0.0,1
+Flood,,Belgium,Western Europe,Europe,1906,5.0,,Km2,6.0,0.0,0
+Flood,,Belgium,Western Europe,Europe,1906,4.0,,Km2,0.0,0.0,0
+Storm,Tropical cyclone,Hong Kong,Eastern Asia,Asia,1906,9.0,,Kph,10000.0,0.0,2
+Earthquake,Ground movement,China,Eastern Asia,Asia,1907,10.0,7.0,Richter,12000.0,0.0,2
+Epidemic,Bacterial disease,India,Southern Asia,Asia,1907,,,Vaccinated,1300000.0,0.0,2
+Mass movement (dry),Landslide,Canada,Northern America,Americas,1908,4.0,,,33.0,0.0,0
+Storm,Tropical cyclone,Bangladesh,Southern Asia,Asia,1909,10.0,,Kph,172.0,0.0,1
+Storm,Tropical cyclone,Bangladesh,Southern Asia,Asia,1909,12.0,,Kph,0.0,0.0,0
+Epidemic,Bacterial disease,China,Eastern Asia,Asia,1909,,,Vaccinated,1500000.0,0.0,2
+Earthquake,Ground movement,France,Western Europe,Europe,1909,6.0,6.0,Richter,46.0,0.0,0
+Storm,Tropical cyclone,Haiti,Caribbean,Americas,1909,11.0,,Kph,150.0,0.0,1
+Epidemic,Bacterial disease,Indonesia,South-Eastern Asia,Asia,1909,,,Vaccinated,40.0,0.0,0
+Drought,Drought,Burkina Faso,Western Africa,Africa,1910,,,Km2,0.0,0.0,0
+Landslide,Avalanche,Canada,Northern America,Americas,1910,3.0,,,62.0,0.0,0
+Epidemic,Bacterial disease,China,Eastern Asia,Asia,1910,,,Vaccinated,60000.0,0.0,2
+Drought,Drought,Cabo Verde,Western Africa,Africa,1910,,,Km2,0.0,0.0,0
+Earthquake,Ground movement,Costa Rica,Central America,Americas,1910,4.0,,Richter,1750.0,0.0,1
+Earthquake,Ground movement,Algeria,Northern Africa,Africa,1910,6.0,6.0,Richter,12.0,0.0,0
+Drought,Drought,Gambia (the),Western Africa,Africa,1910,,,Km2,0.0,0.0,0
+Drought,Drought,Guinea-Bissau,Western Africa,Africa,1910,,,Km2,0.0,0.0,0
+Storm,Tropical cyclone,Bangladesh,Southern Asia,Asia,1911,4.0,,Kph,0.0,0.0,0
+Wildfire,Forest fire,Canada,Northern America,Americas,1911,7.0,1294994.0,Km2,73.0,200.0,1
+Flood,Riverine flood,China,Eastern Asia,Asia,1911,,,Km2,100000.0,0.0,2
+Storm,Convective storm,Canada,Northern America,Americas,1912,6.0,,Kph,28.0,2700.0,2
+Storm,Tropical cyclone,China,Eastern Asia,Asia,1912,8.0,,Kph,50000.0,0.0,2
+Earthquake,Ground movement,Indonesia,South-Eastern Asia,Asia,1914,6.0,8.0,Richter,20.0,20.0,1
+Landslide,Avalanche,Canada,Northern America,Americas,1915,3.0,,,56.0,22.0,1
+Flood,Riverine flood,China,Eastern Asia,Asia,1915,,3000.0,Km2,0.0,3000000.0,1
+Storm,Tropical cyclone,Haiti,Caribbean,Americas,1915,8.0,,Kph,1600.0,0.0,1
+Storm,Tropical cyclone,India,Southern Asia,Asia,1916,11.0,,Kph,300.0,0.0,1
+Earthquake,Ground movement,China,Eastern Asia,Asia,1917,7.0,7.0,Richter,1800.0,0.0,1
+Flood,Riverine flood,China,Eastern Asia,Asia,1917,,,Km2,0.0,635000.0,1
+Earthquake,Ground movement,Guatemala,Central America,Americas,1917,12.0,6.0,Richter,2650.0,0.0,1
+Earthquake,Ground movement,Indonesia,South-Eastern Asia,Asia,1917,1.0,7.0,Richter,15000.0,0.0,2
+Earthquake,Ground movement,China,Eastern Asia,Asia,1918,2.0,7.0,Richter,10000.0,0.0,2
+Epidemic,Viral disease,Bangladesh,Southern Asia,Asia,1918,,,Vaccinated,393000.0,0.0,2
+Epidemic,Viral disease,Canada,Northern America,Americas,1918,1.0,,Vaccinated,50000.0,2000000.0,3
+Epidemic,Viral disease,Anguilla,Caribbean,Americas,1919,1.0,,Vaccinated,0.0,0.0,0
+Drought,Drought,Anguilla,Caribbean,Americas,1919,,,Km2,0.0,0.0,0
+Storm,Tropical cyclone,Bangladesh,Southern Asia,Asia,1919,9.0,,Kph,0.0,0.0,0
+Volcanic activity,Ash fall,Indonesia,South-Eastern Asia,Asia,1919,5.0,,,5000.0,0.0,1
+Earthquake,Ground movement,China,Eastern Asia,Asia,1920,12.0,9.0,Richter,180000.0,0.0,2
+Drought,Drought,Cabo Verde,Western Africa,Africa,1920,,,Km2,24000.0,0.0,2
+Epidemic,Viral disease,Anguilla,Caribbean,Americas,1920,1.0,,Vaccinated,0.0,0.0,0
+Drought,Drought,China,Eastern Asia,Asia,1920,,,Km2,500000.0,20000000.0,3
+Flood,,Germany Fed Rep,Western Europe,Europe,1920,8.0,,Km2,0.0,0.0,0
+Epidemic,Bacterial disease,India,Southern Asia,Asia,1920,,,Vaccinated,2000000.0,0.0,2
+Epidemic,Bacterial disease,India,Southern Asia,Asia,1920,,,Vaccinated,500000.0,0.0,2
+Epidemic,Viral disease,Anguilla,Caribbean,Americas,1921,1.0,,Vaccinated,0.0,0.0,0
+Earthquake,Ground movement,Chile,South America,Americas,1922,11.0,9.0,Richter,1000.0,0.0,1
+Epidemic,Viral disease,Anguilla,Caribbean,Americas,1922,1.0,,Vaccinated,0.0,0.0,0
+Storm,Tropical cyclone,Bangladesh,Southern Asia,Asia,1922,4.0,,Kph,0.0,0.0,0
+Wildfire,Forest fire,Canada,Northern America,Americas,1922,9.0,5179.0,Km2,43.0,11000.0,2
+Storm,Tropical cyclone,China,Eastern Asia,Asia,1922,7.0,,Kph,100000.0,0.0,2
+Epidemic,Viral disease,Anguilla,Caribbean,Americas,1923,1.0,,Vaccinated,0.0,0.0,0
+Storm,Tropical cyclone,Bangladesh,Southern Asia,Asia,1923,5.0,,Kph,6.0,25000.0,1
+Earthquake,Ground movement,China,Eastern Asia,Asia,1923,3.0,7.0,Richter,5000.0,0.0,1
+Storm,Tropical cyclone,Hong Kong,Eastern Asia,Asia,1923,8.0,,Kph,100.0,0.0,1
+Earthquake,Ground movement,Ecuador,South America,Americas,1924,3.0,7.0,Richter,40.0,0.0,0
+Earthquake,Ground movement,Indonesia,South-Eastern Asia,Asia,1924,12.0,,Richter,727.0,11250.0,2
+Storm,Tropical cyclone,India,Southern Asia,Asia,1924,9.0,,Kph,1242.0,1000000.0,2
+Epidemic,Bacterial disease,India,Southern Asia,Asia,1924,,,Vaccinated,300000.0,0.0,2
+Earthquake,Ground movement,China,Eastern Asia,Asia,1925,3.0,7.0,Richter,5000.0,0.0,1
+Flood,,Germany Fed Rep,Western Europe,Europe,1925,12.0,,Km2,0.0,0.0,0
+Storm,Tropical cyclone,India,Southern Asia,Asia,1925,5.0,,Kph,80.0,0.0,0
+Flood,Riverine flood,Belgium,Western Europe,Europe,1926,,,Km2,0.0,0.0,0
+Storm,Tropical cyclone,Bangladesh,Southern Asia,Asia,1926,5.0,,Kph,0.0,0.0,0
+Storm,Tropical cyclone,Bahamas (the),Caribbean,Americas,1926,7.0,,Kph,0.0,0.0,0
+Landslide,Landslide,Colombia,South America,Americas,1926,11.0,,,100.0,0.0,1
+Storm,Tropical cyclone,Cuba,Caribbean,Americas,1926,10.0,,Kph,600.0,0.0,1
+Flood,,Germany Fed Rep,Western Europe,Europe,1926,6.0,,Km2,0.0,0.0,0
+Earthquake,Ground movement,Egypt,Northern Africa,Africa,1926,6.0,,Richter,12.0,0.0,0
+Landslide,Mudslide,France,Western Europe,Europe,1926,11.0,,,28.0,0.0,0
+Flood,Riverine flood,India,Southern Asia,Asia,1926,7.0,,Km2,0.0,0.0,0
+Epidemic,Viral disease,India,Southern Asia,Asia,1926,,,Vaccinated,423000.0,0.0,2
+Earthquake,Ground movement,Indonesia,South-Eastern Asia,Asia,1927,12.0,6.0,Richter,50.0,50.0,1
+Earthquake,Ground movement,China,Eastern Asia,Asia,1927,5.0,8.0,Richter,40912.0,133894.0,3
+Storm,Tropical cyclone,China,Eastern Asia,Asia,1927,9.0,,Kph,5000.0,0.0,1
+Flood,,Algeria,Northern Africa,Africa,1927,11.0,,Km2,3000.0,0.0,1
+Storm,Tropical cyclone,India,Southern Asia,Asia,1927,7.0,,Kph,56.0,40010.0,2
+Storm,Tropical cyclone,India,Southern Asia,Asia,1927,11.0,,Kph,629.0,0.0,1
+Flood,,Belgium,Western Europe,Europe,1928,,,Km2,0.0,6000.0,1
+Earthquake,Ground movement,Bulgaria,Eastern Europe,Europe,1928,4.0,,Richter,107.0,0.0,1
+Earthquake,Tsunami,Canada,Northern America,Americas,1928,11.0,7.0,Richter,27.0,0.0,0
+Earthquake,Ground movement,Chile,South America,Americas,1928,,,Richter,220.0,0.0,1
+Drought,Drought,China,Eastern Asia,Asia,1928,,,Km2,3000000.0,0.0,2
+Storm,Tropical cyclone,Guadeloupe,Caribbean,Americas,1928,9.0,,Kph,2000.0,0.0,1
+Earthquake,Ground movement,Greece,Southern Europe,Europe,1928,,,Richter,103.0,0.0,1

@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Severity Prediction - Disaster Relief System</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="app-container">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="sidebar-header">
+          <h1>🚨 <span>Disaster Relief</span></h1>
+          <p>Logistics Optimization System</p>
+        </div>
+
+        <nav>
+          <div class="nav-section">
+            <div class="nav-section-title">Overview</div>
+            <a href="index.html" class="nav-link">
+              <span class="icon">📊</span>
+              <span>Dashboard</span>
+            </a>
+          </div>
+
+          <div class="nav-section">
+            <div class="nav-section-title">Workflow</div>
+            <a href="predict.html" class="nav-link active">
+              <span class="icon">🎯</span>
+              <span>Severity Prediction</span>
+              <span class="step-badge">Step&nbsp;1</span>
+            </a>
+            <a href="priority.html" class="nav-link">
+              <span class="icon">📋</span>
+              <span>Priority Ranking</span>
+              <span class="step-badge">Step&nbsp;2</span>
+            </a>
+            <a href="allocate.html" class="nav-link">
+              <span class="icon">📦</span>
+              <span>Resource Allocation</span>
+              <span class="step-badge">Step&nbsp;3</span>
+            </a>
+            <a href="routes.html" class="nav-link">
+              <span class="icon">🚚</span>
+              <span>Route Optimization</span>
+              <span class="step-badge">Step&nbsp;4</span>
+            </a>
+          </div>
+        </nav>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <div class="page-header">
+          <div class="breadcrumb">
+            <span>Home</span>
+            <span>/</span>
+            <span>Severity Prediction</span>
+          </div>
+          <h2>🎯 Step 1: Severity Prediction</h2>
+          <p>Enter disaster details to predict severity level using AI</p>
+        </div>
+
+        <!-- Prediction Form -->
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">Disaster Details</h3>
+              <p class="card-subtitle">
+                Fill in the information about the disaster
+              </p>
+            </div>
+          </div>
+
+          <form id="predict-form">
+            <div class="form-grid">
+              <!-- Disaster Type -->
+              <div class="form-group">
+                <label for="disaster_type">
+                  Disaster Type <span class="required">*</span>
+                </label>
+                <select id="disaster_type" class="form-control" required>
+                  <option value="">Select disaster type...</option>
+                </select>
+              </div>
+
+              <!-- Disaster Subtype -->
+              <div class="form-group">
+                <label for="disaster_subtype">Disaster Subtype</label>
+                <select id="disaster_subtype" class="form-control">
+                  <option value="">Select subtype (optional)...</option>
+                </select>
+              </div>
+
+              <!-- Magnitude -->
+              <div class="form-group">
+                <label for="magnitude">
+                  Magnitude <span class="required">*</span>
+                </label>
+                <input
+                  type="number"
+                  id="magnitude"
+                  class="form-control"
+                  min="0"
+                  max="10"
+                  step="0.1"
+                  placeholder="e.g., 7.5"
+                  required
+                />
+                <p class="form-hint">
+                  Scale: 0-10 (Richter for earthquakes, normalized for others)
+                </p>
+              </div>
+
+              <!-- Month -->
+              <div class="form-group">
+                <label for="month">Month</label>
+                <select id="month" class="form-control">
+                  <option value="1">January</option>
+                  <option value="2">February</option>
+                  <option value="3">March</option>
+                  <option value="4">April</option>
+                  <option value="5">May</option>
+                  <option value="6" selected>June</option>
+                  <option value="7">July</option>
+                  <option value="8">August</option>
+                  <option value="9">September</option>
+                  <option value="10">October</option>
+                  <option value="11">November</option>
+                  <option value="12">December</option>
+                </select>
+              </div>
+
+              <!-- Location Name -->
+              <div class="form-group">
+                <label for="location_name">
+                  Location Name <span class="required">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="location_name"
+                  class="form-control"
+                  placeholder="e.g., Los Angeles, California"
+                  required
+                />
+              </div>
+
+              <!-- Continent -->
+              <div class="form-group">
+                <label for="continent">
+                  Continent <span class="required">*</span>
+                </label>
+                <select id="continent" class="form-control" required>
+                  <option value="">Select continent...</option>
+                </select>
+              </div>
+
+              <!-- Region -->
+              <div class="form-group">
+                <label for="region">
+                  Region <span class="required">*</span>
+                </label>
+                <select id="region" class="form-control" required>
+                  <option value="">Select region...</option>
+                </select>
+              </div>
+
+              <!-- Latitude -->
+              <div class="form-group">
+                <label for="latitude">
+                  Latitude <span class="required">*</span>
+                </label>
+                <input
+                  type="number"
+                  id="latitude"
+                  class="form-control"
+                  min="-90"
+                  max="90"
+                  step="0.0001"
+                  placeholder="e.g., 34.0522"
+                  required
+                />
+              </div>
+
+              <!-- Longitude -->
+              <div class="form-group">
+                <label for="longitude">
+                  Longitude <span class="required">*</span>
+                </label>
+                <input
+                  type="number"
+                  id="longitude"
+                  class="form-control"
+                  min="-180"
+                  max="180"
+                  step="0.0001"
+                  placeholder="e.g., -118.2437"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="btn-group">
+              <button
+                type="submit"
+                class="btn btn-primary btn-lg"
+                id="predict-btn"
+              >
+                🎯 Predict Severity
+              </button>
+              <button type="reset" class="btn btn-outline">Clear Form</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Prediction Result -->
+        <div id="prediction-result"></div>
+      </main>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/predict.js"></script>
+  </body>
+</html>

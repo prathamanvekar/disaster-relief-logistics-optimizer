@@ -1,0 +1,53 @@
+{
+  "avg_deaths_by_type": {
+    "Animal accident": 12.0,
+    "Drought": 15235.615584415584,
+    "Earthquake": 1516.961139896373,
+    "Epidemic": 6406.558960692872,
+    "Extreme temperature ": 320.75787728026535,
+    "Flood": 1259.8740767429292,
+    "Fog": 4000.0,
+    "Glacial lake outburst": 125.0,
+    "Impact": 0.0,
+    "Insect infestation": 0.0,
+    "Landslide": 86.48453608247422,
+    "Mass movement (dry)": 96.75,
+    "Storm": 311.6919483985765,
+    "Volcanic activity": 327.6754716981132,
+    "Wildfire": 9.70276008492569
+  },
+  "avg_affected_by_type": {
+    "Animal accident": 5.0,
+    "Drought": 3634057.7064935067,
+    "Earthquake": 131542.15025906736,
+    "Epidemic": 33053.83077948035,
+    "Extreme temperature ": 171866.5223880597,
+    "Flood": 700977.3192217619,
+    "Fog": 0.0,
+    "Glacial lake outburst": 12.0,
+    "Impact": 301491.0,
+    "Insect infestation": 29189.583333333332,
+    "Landslide": 18886.25,
+    "Mass movement (dry)": 573.625,
+    "Storm": 274092.14368327404,
+    "Volcanic activity": 37418.77358490566,
+    "Wildfire": 38133.77494692145
+  },
+  "avg_severity_by_type": {
+    "Animal accident": 0.0,
+    "Drought": 0.861038961038961,
+    "Earthquake": 1.0479274611398963,
+    "Epidemic": 0.9480346435709527,
+    "Extreme temperature ": 0.5522388059701493,
+    "Flood": 1.0639524410016212,
+    "Fog": 1.0,
+    "Glacial lake outburst": 1.0,
+    "Impact": 2.0,
+    "Insect infestation": 0.020833333333333332,
+    "Landslide": 0.6353092783505154,
+    "Mass movement (dry)": 0.5416666666666666,
+    "Storm": 0.9039145907473309,
+    "Volcanic activity": 0.7584905660377359,
+    "Wildfire": 0.4883227176220807
+  }
+}

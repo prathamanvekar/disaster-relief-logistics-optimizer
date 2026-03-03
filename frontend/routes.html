@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Route Optimization - Disaster Relief System</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Leaflet CSS for Maps -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+    <style>
+      .map-container {
+        height: 450px;
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        border: 1px solid var(--border-color);
+        margin-bottom: 1.5rem;
+      }
+      #map {
+        width: 100%;
+        height: 100%;
+      }
+      .leaflet-popup-content {
+        font-family: "Inter", sans-serif;
+      }
+      .leaflet-popup-content h4 {
+        margin: 0 0 0.5rem 0;
+        color: #1e293b;
+      }
+      .leaflet-popup-content p {
+        margin: 0;
+        font-size: 0.875rem;
+        color: #64748b;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="app-container">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="sidebar-header">
+          <h1>🚨 <span>Disaster Relief</span></h1>
+          <p>Logistics Optimization System</p>
+        </div>
+
+        <nav>
+          <div class="nav-section">
+            <div class="nav-section-title">Overview</div>
+            <a href="index.html" class="nav-link">
+              <span class="icon">📊</span>
+              <span>Dashboard</span>
+            </a>
+          </div>
+
+          <div class="nav-section">
+            <div class="nav-section-title">Workflow</div>
+            <a href="predict.html" class="nav-link">
+              <span class="icon">🎯</span>
+              <span>Severity Prediction</span>
+              <span class="step-badge">Step&nbsp;1</span>
+            </a>
+            <a href="priority.html" class="nav-link">
+              <span class="icon">📋</span>
+              <span>Priority Ranking</span>
+              <span class="step-badge">Step&nbsp;2</span>
+            </a>
+            <a href="allocate.html" class="nav-link">
+              <span class="icon">📦</span>
+              <span>Resource Allocation</span>
+              <span class="step-badge">Step&nbsp;3</span>
+            </a>
+            <a href="routes.html" class="nav-link active">
+              <span class="icon">🚚</span>
+              <span>Route Optimization</span>
+              <span class="step-badge">Step&nbsp;4</span>
+            </a>
+          </div>
+        </nav>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <div class="page-header">
+          <div class="breadcrumb">
+            <span>Home</span>
+            <span>/</span>
+            <span>Route Optimization</span>
+          </div>
+          <h2>🚚 Step 4: Route Optimization</h2>
+          <p>Optimize delivery routes for vehicles</p>
+        </div>
+
+        <!-- Current Disaster Info -->
+        <div class="card" id="disaster-info">
+          <div class="loading">
+            <div class="spinner"></div>
+            <p>Loading disaster info...</p>
+          </div>
+        </div>
+
+        <!-- Depot & Vehicle Selection -->
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">Depot & Vehicle Selection</h3>
+              <p class="card-subtitle">
+                Set the starting point and select vehicles for delivery
+              </p>
+            </div>
+          </div>
+
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="depot-lat">Depot Latitude</label>
+              <input
+                type="number"
+                id="depot-lat"
+                class="form-control"
+                value="34.0522"
+                step="0.0001"
+                placeholder="e.g., 34.0522"
+              />
+              <p class="form-hint">Starting warehouse location</p>
+            </div>
+            <div class="form-group">
+              <label for="depot-lon">Depot Longitude</label>
+              <input
+                type="number"
+                id="depot-lon"
+                class="form-control"
+                value="-118.2437"
+                step="0.0001"
+                placeholder="e.g., -118.2437"
+              />
+            </div>
+          </div>
+
+          <h4 class="mt-3 mb-2">Available Vehicles</h4>
+          <div id="vehicles-list" class="checkbox-group">
+            <div class="loading">
+              <div class="spinner"></div>
+              <p>Loading vehicles...</p>
+            </div>
+          </div>
+
+          <div class="btn-group mt-3">
+            <button
+              class="btn btn-primary btn-lg"
+              id="optimize-btn"
+              onclick="optimizeRoutes()"
+            >
+              🚚 Optimize Routes
+            </button>
+            <button class="btn btn-outline" onclick="resetVehicles()">
+              🔄 Reset Vehicles
+            </button>
+          </div>
+        </div>
+
+        <!-- Map View -->
+        <div class="card" id="map-card" style="display: none">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">Route Map</h3>
+              <p class="card-subtitle">
+                Visual representation of delivery routes
+              </p>
+            </div>
+          </div>
+          <div class="map-container">
+            <div id="map"></div>
+          </div>
+        </div>
+
+        <!-- Route Results -->
+        <div id="routes-result"></div>
+
+        <!-- Workflow Complete -->
+        <div id="workflow-complete" style="display: none">
+          <div class="result-box success">
+            <div class="result-header">
+              <span class="icon">🎉</span>
+              <h3>Workflow Complete!</h3>
+            </div>
+            <p>
+              You have successfully completed all 4 steps of the disaster relief
+              workflow:
+            </p>
+            <ol class="mt-2" style="margin-left: 1.5rem">
+              <li>✅ Predicted disaster severity</li>
+              <li>✅ Ranked affected areas by priority</li>
+              <li>✅ Allocated resources proportionally</li>
+              <li>✅ Optimized delivery routes</li>
+            </ol>
+            <div class="btn-group mt-3">
+              <a href="index.html" class="btn btn-primary">
+                📊 View Dashboard
+              </a>
+              <a href="predict.html" class="btn btn-outline">
+                🔄 Start New Operation
+              </a>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/routes.js"></script>
+  </body>
+</html>
