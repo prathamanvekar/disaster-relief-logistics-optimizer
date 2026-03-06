@@ -170,15 +170,15 @@ def seed_sample_data():
     conn = get_db_connection()
     cursor = conn.cursor()
 
-    # Check if already seeded
-    cursor.execute("SELECT COUNT(*) FROM areas")
-    if cursor.fetchone()[0] > 0:
-        print("✓ Database already seeded, skipping...")
-        conn.close()
-        return
+    # Make seed idempotent so new demo locations can be added on existing DBs.
+    cursor.execute("CREATE UNIQUE INDEX IF NOT EXISTS idx_areas_name ON areas(name)")
+    cursor.execute("CREATE UNIQUE INDEX IF NOT EXISTS idx_vehicles_name ON vehicles(vehicle_name)")
+    cursor.execute(
+        "CREATE UNIQUE INDEX IF NOT EXISTS idx_resources_type_warehouse ON resources(resource_type, warehouse_name)"
+    )
 
     # ============================================================
-    # SEED AREAS (Sample US locations)
+    # SEED AREAS (US + India + Japan for region-relevant demos)
     # ============================================================
     areas = [
         ("Los Angeles Downtown", "90012", 34.0522, -118.2437, 50000, 0.8),
@@ -196,10 +196,36 @@ def seed_sample_data():
         ("San Diego Bay", "92101", 32.7157, -117.1611, 42000, 0.75),
         ("Portland Central", "97201", 45.5152, -122.6784, 38000, 0.8),
         ("Las Vegas Strip", "89109", 36.1147, -115.1728, 55000, 0.85),
+        ("Tokyo Shinjuku", "1600022", 35.6938, 139.7034, 92000, 0.82),
+        ("Tokyo Shibuya", "1500002", 35.6595, 139.7005, 88000, 0.8),
+        ("Yokohama Port", "2310002", 35.4437, 139.6380, 74000, 0.78),
+        ("Osaka Namba", "5420076", 34.6672, 135.5010, 70000, 0.76),
+        ("Osaka Umeda", "5300001", 34.7024, 135.4959, 69000, 0.79),
+        ("Kyoto Central", "6008216", 35.0116, 135.7681, 56000, 0.74),
+        ("Kobe Harbor", "6500044", 34.6901, 135.1955, 52000, 0.73),
+        ("Nagoya Sakae", "4600008", 35.1709, 136.9086, 61000, 0.77),
+        ("Sapporo Central", "0600001", 43.0618, 141.3545, 58000, 0.71),
+        ("Fukuoka Hakata", "8120011", 33.5902, 130.4017, 55000, 0.75),
+        ("Sendai Station", "9800021", 38.2600, 140.8825, 50000, 0.72),
+        ("Naha Okinawa", "9000015", 26.2124, 127.6809, 39000, 0.69),
+        ("Mumbai South", "400001", 18.9388, 72.8354, 110000, 0.58),
+        ("Mumbai Andheri", "400053", 19.1136, 72.8697, 98000, 0.62),
+        ("Delhi Central", "110001", 28.6315, 77.2167, 125000, 0.54),
+        ("Delhi Rohini", "110085", 28.7495, 77.0565, 86000, 0.6),
+        ("Bengaluru Central", "560001", 12.9716, 77.5946, 102000, 0.66),
+        ("Bengaluru Whitefield", "560066", 12.9698, 77.75, 82000, 0.7),
+        ("Chennai Marina", "600001", 13.0827, 80.2707, 91000, 0.64),
+        ("Hyderabad Gachibowli", "500032", 17.4401, 78.3489, 84000, 0.68),
+        ("Kolkata Central", "700001", 22.5726, 88.3639, 99000, 0.57),
+        ("Pune Shivajinagar", "411005", 18.5314, 73.8446, 76000, 0.67),
+        ("Ahmedabad Central", "380001", 23.0225, 72.5714, 79000, 0.65),
+        ("Jaipur Walled City", "302002", 26.9124, 75.7873, 68000, 0.61),
+        ("Lucknow Hazratganj", "226001", 26.8467, 80.9462, 72000, 0.62),
+        ("Kochi Ernakulam", "682011", 9.9816, 76.2999, 59000, 0.72),
     ]
 
     cursor.executemany('''
-        INSERT INTO areas (name, zipcode, latitude, longitude, population, accessibility_score)
+        INSERT OR IGNORE INTO areas (name, zipcode, latitude, longitude, population, accessibility_score)
         VALUES (?, ?, ?, ?, ?, ?)
     ''', areas)
 
@@ -220,7 +246,7 @@ def seed_sample_data():
     ]
 
     cursor.executemany('''
-        INSERT INTO resources (resource_type, quantity, unit, warehouse_name, warehouse_lat, warehouse_lon)
+        INSERT OR IGNORE INTO resources (resource_type, quantity, unit, warehouse_name, warehouse_lat, warehouse_lon)
         VALUES (?, ?, ?, ?, ?, ?)
     ''', resources)
 
@@ -238,14 +264,14 @@ def seed_sample_data():
     ]
 
     cursor.executemany('''
-        INSERT INTO vehicles (vehicle_name, vehicle_type, capacity, current_lat, current_lon, status)
+        INSERT OR IGNORE INTO vehicles (vehicle_name, vehicle_type, capacity, current_lat, current_lon, status)
         VALUES (?, ?, ?, ?, ?, ?)
     ''', vehicles)
 
     conn.commit()
     conn.close()
 
-    print("✓ Sample data seeded successfully!")
+    print("✓ Sample data seeded/updated successfully!")
 
 def load_population_data():
     """Load population data from CSV into database"""

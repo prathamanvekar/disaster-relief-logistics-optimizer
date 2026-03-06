@@ -6,6 +6,15 @@
     <title>Severity Prediction - Disaster Relief System</title>
     <link rel="stylesheet" href="css/styles.css" />
     <link
+<<<<<<< HEAD
+=======
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <link
+>>>>>>> 7bc589d (push to github with readme)
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
@@ -183,8 +192,15 @@
                   max="90"
                   step="0.0001"
                   placeholder="e.g., 34.0522"
+<<<<<<< HEAD
                   required
                 />
+=======
+                  readonly
+                  required
+                />
+                <p class="form-hint">Auto-filled from map selection</p>
+>>>>>>> 7bc589d (push to github with readme)
               </div>
 
               <!-- Longitude -->
@@ -200,13 +216,43 @@
                   max="180"
                   step="0.0001"
                   placeholder="e.g., -118.2437"
+<<<<<<< HEAD
                   required
                 />
+=======
+                  readonly
+                  required
+                />
+                <p class="form-hint">Auto-filled from map selection</p>
+              </div>
+
+              <!-- Map Picker -->
+              <div class="form-group full-width">
+                <label for="prediction-map">
+                  Select Location on Map <span class="required">*</span>
+                </label>
+                <div class="map-container prediction-map-container">
+                  <div id="prediction-map"></div>
+                </div>
+                <p class="form-hint">
+                  Click anywhere on the map to set latitude and longitude.
+                </p>
+>>>>>>> 7bc589d (push to github with readme)
               </div>
             </div>
 
             <div class="btn-group">
               <button
+<<<<<<< HEAD
+=======
+                type="button"
+                class="btn btn-secondary"
+                id="load-demo-btn"
+              >
+                ⚡ Load Demo Data
+              </button>
+              <button
+>>>>>>> 7bc589d (push to github with readme)
                 type="submit"
                 class="btn btn-primary btn-lg"
                 id="predict-btn"
@@ -224,6 +270,14 @@
     </div>
 
     <script src="js/api.js"></script>
+<<<<<<< HEAD
+=======
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+>>>>>>> 7bc589d (push to github with readme)
     <script src="js/predict.js"></script>
   </body>
 </html>

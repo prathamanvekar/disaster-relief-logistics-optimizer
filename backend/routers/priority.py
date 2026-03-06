@@ -4,6 +4,10 @@
 
 from fastapi import APIRouter, HTTPException
 from typing import List
+<<<<<<< HEAD
+=======
+import math
+>>>>>>> 7bc589d (push to github with readme)
 
 from schemas import (
     PriorityRankingInput,
@@ -15,6 +19,19 @@ from database import get_db_connection
 
 router = APIRouter(prefix="/api/priority", tags=["Priority"])
 
+<<<<<<< HEAD
+=======
+
+def haversine_distance(lat1: float, lon1: float, lat2: float, lon2: float) -> float:
+    """Distance in kilometers between two latitude/longitude points."""
+    lat1, lon1, lat2, lon2 = map(math.radians, [lat1, lon1, lat2, lon2])
+    dlat = lat2 - lat1
+    dlon = lon2 - lon1
+    a = math.sin(dlat / 2) ** 2 + math.cos(lat1) * math.cos(lat2) * math.sin(dlon / 2) ** 2
+    c = 2 * math.asin(math.sqrt(a))
+    return 6371 * c
+
+>>>>>>> 7bc589d (push to github with readme)
 def calculate_priority_score(severity: int, population: int, accessibility: float) -> float:
     """
     Calculate priority score using weighted formula
@@ -145,6 +162,7 @@ async def rank_priorities(input_data: PriorityRankingInput):
         raise HTTPException(status_code=500, detail=str(e))
 
 @router.get("/areas")
+<<<<<<< HEAD
 async def get_all_areas():
     """Get all available areas"""
     conn = get_db_connection()
@@ -155,6 +173,72 @@ async def get_all_areas():
     conn.close()
 
     return [dict(row) for row in rows]
+=======
+async def get_all_areas(disaster_id: int = None, limit: int = 20):
+    """Get available areas, optionally prioritized by disaster location relevance."""
+    conn = get_db_connection()
+    cursor = conn.cursor()
+
+    cursor.execute("SELECT * FROM areas")
+    rows = [dict(row) for row in cursor.fetchall()]
+
+    # Backward compatible behavior when no disaster context is provided.
+    if disaster_id is None:
+        conn.close()
+        return sorted(rows, key=lambda x: x["name"])
+
+    cursor.execute("SELECT * FROM disasters WHERE id = ?", (disaster_id,))
+    disaster = cursor.fetchone()
+
+    if not disaster:
+        conn.close()
+        raise HTTPException(status_code=404, detail="Disaster not found")
+
+    disaster_lat = disaster["latitude"]
+    disaster_lon = disaster["longitude"]
+    disaster_continent = (disaster["continent"] or "").strip().lower()
+    disaster_region = (disaster["region"] or "").strip().lower()
+
+    if disaster_lat is None or disaster_lon is None:
+        conn.close()
+        return sorted(rows, key=lambda x: x["name"])[: max(1, min(limit, 50))]
+
+    scored_rows = []
+    for area in rows:
+        distance_km = haversine_distance(
+            disaster_lat,
+            disaster_lon,
+            area["latitude"],
+            area["longitude"],
+        )
+
+        # Basic geo-buckets for demo relevance (focus on India/Japan + nearby Asia).
+        area_lat = area["latitude"]
+        area_lon = area["longitude"]
+        in_asia_bbox = 5 <= area_lat <= 48 and 65 <= area_lon <= 146
+
+        region_boost = 0
+        if disaster_region in ["eastern asia", "southern asia"] and in_asia_bbox:
+            region_boost = -500
+        elif disaster_continent == "asia" and in_asia_bbox:
+            region_boost = -250
+
+        score = distance_km + region_boost
+
+        area_copy = dict(area)
+        area_copy["distance_km"] = round(distance_km, 2)
+        area_copy["_rank_score"] = score
+        scored_rows.append(area_copy)
+
+    scored_rows.sort(key=lambda x: x["_rank_score"])
+    selected = scored_rows[: max(1, min(limit, 50))]
+
+    for item in selected:
+        item.pop("_rank_score", None)
+
+    conn.close()
+    return selected
+>>>>>>> 7bc589d (push to github with readme)
 
 @router.get("/disaster/{disaster_id}/ranked-areas")
 async def get_ranked_areas_for_disaster(disaster_id: int):

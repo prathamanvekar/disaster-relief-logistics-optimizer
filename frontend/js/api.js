@@ -53,8 +53,24 @@ const api = {
     return response.json();
   },
 
+<<<<<<< HEAD
   async getAreas() {
     const response = await fetch(`${API_BASE_URL}/api/priority/areas`);
+=======
+  async getAreas(options = {}) {
+    const params = new URLSearchParams();
+    if (options.disasterId) {
+      params.set("disaster_id", String(options.disasterId));
+    }
+    if (options.limit) {
+      params.set("limit", String(options.limit));
+    }
+
+    const query = params.toString();
+    const response = await fetch(
+      `${API_BASE_URL}/api/priority/areas${query ? `?${query}` : ""}`,
+    );
+>>>>>>> 7bc589d (push to github with readme)
     if (!response.ok) throw new Error("Failed to get areas");
     return response.json();
   },

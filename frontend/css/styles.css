@@ -316,6 +316,13 @@ a:hover {
   margin-bottom: 1.25rem;
 }
 
+<<<<<<< HEAD
+=======
+.form-group.full-width {
+  grid-column: 1 / -1;
+}
+
+>>>>>>> 7bc589d (push to github with readme)
 .form-group label {
   display: block;
   font-size: 0.875rem;
@@ -748,11 +755,26 @@ select.form-control {
   border: 1px solid var(--border-color);
 }
 
+<<<<<<< HEAD
+=======
+.prediction-map-container {
+  height: 340px;
+}
+
+>>>>>>> 7bc589d (push to github with readme)
 #map {
   width: 100%;
   height: 100%;
 }
 
+<<<<<<< HEAD
+=======
+#prediction-map {
+  width: 100%;
+  height: 100%;
+}
+
+>>>>>>> 7bc589d (push to github with readme)
 /* ============================================================
    ROUTE CARDS
    ============================================================ */

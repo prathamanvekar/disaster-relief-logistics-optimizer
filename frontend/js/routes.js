@@ -6,6 +6,7 @@ let vehicles = [];
 let currentDisasterId = null;
 let map = null;
 let routeLayers = [];
+<<<<<<< HEAD
 
 document.addEventListener("DOMContentLoaded", async () => {
   currentDisasterId = getCurrentDisaster();
@@ -27,18 +28,109 @@ document.addEventListener("DOMContentLoaded", async () => {
   await loadDisasterInfo();
   await loadVehicles();
 });
+=======
+let availableDisasters = [];
+
+document.addEventListener("DOMContentLoaded", async () => {
+  const isReady = await initializeDisasterSelection();
+  if (!isReady) {
+    return;
+  }
+
+  await refreshSelectedDisasterData();
+});
+
+async function initializeDisasterSelection() {
+  try {
+    const allDisasters = await api.getAllDisasters();
+    availableDisasters = allDisasters.sort((a, b) => b.id - a.id);
+
+    if (availableDisasters.length === 0) {
+      document.getElementById("disaster-info").innerHTML = `
+        <div class="result-box warning">
+            <div class="result-header">
+                <span class="icon">⚠️</span>
+                <h3>No Disasters Found</h3>
+            </div>
+            <p>Create at least one disaster in Step 1 to continue.</p>
+            <a href="predict.html" class="btn btn-primary mt-2">Go to Step 1</a>
+        </div>
+      `;
+      return false;
+    }
+
+    const storedDisasterId = parseInt(getCurrentDisaster(), 10);
+    const selectedDisaster = availableDisasters.find(
+      (d) => d.id === storedDisasterId,
+    );
+    currentDisasterId = selectedDisaster
+      ? selectedDisaster.id
+      : availableDisasters[0].id;
+    setCurrentDisaster(currentDisasterId);
+    return true;
+  } catch (error) {
+    console.error("Error loading disasters:", error);
+    document.getElementById("disaster-info").innerHTML = `
+      <div class="result-box error">
+        <p>Failed to load disasters. Please try again.</p>
+      </div>
+    `;
+    return false;
+  }
+}
+
+function buildDisasterOptions(selectedId) {
+  return availableDisasters
+    .map(
+      (disaster) => `
+        <option value="${disaster.id}" ${disaster.id === selectedId ? "selected" : ""}>
+          #${disaster.id} - ${disaster.disaster_type} (${disaster.location_name})
+        </option>
+      `,
+    )
+    .join("");
+}
+
+async function refreshSelectedDisasterData() {
+  await loadDisasterInfo();
+  await loadVehicles();
+  document.getElementById("routes-result").innerHTML = "";
+  document.getElementById("workflow-complete").style.display = "none";
+
+  if (map) {
+    map.remove();
+    map = null;
+  }
+  routeLayers = [];
+  document.getElementById("map-card").style.display = "none";
+}
+>>>>>>> 7bc589d (push to github with readme)
 
 async function loadDisasterInfo() {
   try {
     const disaster = await api.getDisaster(currentDisasterId);
 
     document.getElementById("disaster-info").innerHTML = `
+<<<<<<< HEAD
             <div class="flex flex-between flex-center">
+=======
+            <div class="flex flex-between" style="gap: 1rem; flex-wrap: wrap;">
+>>>>>>> 7bc589d (push to github with readme)
                 <div>
                     <h3 class="card-title">Current Disaster: #${disaster.id}</h3>
                     <p class="card-subtitle">${disaster.disaster_type} in ${disaster.location_name}</p>
                 </div>
+<<<<<<< HEAD
                 <div class="flex gap-2">
+=======
+                <div style="display:flex; gap:0.75rem; flex-wrap:wrap; align-items:center;">
+                    <div>
+                        <label for="disaster-select" class="text-muted" style="display:block; font-size:0.75rem; margin-bottom:0.25rem;">Select Disaster</label>
+                        <select id="disaster-select" class="form-control" style="min-width: 300px;">
+                            ${buildDisasterOptions(disaster.id)}
+                        </select>
+                    </div>
+>>>>>>> 7bc589d (push to github with readme)
                     <span class="badge badge-${getSeverityClass(disaster.predicted_severity)}">
                         ${disaster.severity_label}
                     </span>
@@ -49,6 +141,17 @@ async function loadDisasterInfo() {
             </div>
         `;
 
+<<<<<<< HEAD
+=======
+    document
+      .getElementById("disaster-select")
+      .addEventListener("change", async (event) => {
+        currentDisasterId = parseInt(event.target.value, 10);
+        setCurrentDisaster(currentDisasterId);
+        await refreshSelectedDisasterData();
+      });
+
+>>>>>>> 7bc589d (push to github with readme)
     // Set depot location based on disaster location
     document.getElementById("depot-lat").value = disaster.latitude || 34.0522;
     document.getElementById("depot-lon").value =
@@ -184,7 +287,11 @@ async function optimizeRoutes() {
 
     // Show map
     document.getElementById("map-card").style.display = "block";
+<<<<<<< HEAD
     initializeMap(depotLat, depotLon, result.routes);
+=======
+    await initializeMap(depotLat, depotLon, result.routes);
+>>>>>>> 7bc589d (push to github with readme)
 
     // Build route cards
     const routeCards = result.routes
@@ -273,7 +380,11 @@ async function optimizeRoutes() {
   }
 }
 
+<<<<<<< HEAD
 function initializeMap(depotLat, depotLon, routes) {
+=======
+async function initializeMap(depotLat, depotLon, routes) {
+>>>>>>> 7bc589d (push to github with readme)
   // Clear existing map
   if (map) {
     map.remove();
@@ -307,7 +418,12 @@ function initializeMap(depotLat, depotLon, routes) {
   const colors = ["#2563eb", "#10b981", "#f59e0b", "#ef4444", "#8b5cf6"];
   const allCoords = [[depotLat, depotLon]];
 
+<<<<<<< HEAD
   routes.forEach((route, routeIndex) => {
+=======
+  for (let routeIndex = 0; routeIndex < routes.length; routeIndex++) {
+    const route = routes[routeIndex];
+>>>>>>> 7bc589d (push to github with readme)
     const color = colors[routeIndex % colors.length];
     const routeCoords = [[depotLat, depotLon]];
 
@@ -333,6 +449,7 @@ function initializeMap(depotLat, depotLon, routes) {
                 `);
     });
 
+<<<<<<< HEAD
     // Draw route line
     const polyline = L.polyline(routeCoords, {
       color: color,
@@ -343,6 +460,20 @@ function initializeMap(depotLat, depotLon, routes) {
 
     routeLayers.push(polyline);
   });
+=======
+    // Request road geometry so the map follows actual streets.
+    const routePathCoords = await getRoadRouteCoordinates(routeCoords);
+
+    // Draw route line
+    const polyline = L.polyline(routePathCoords, {
+      color: color,
+      weight: 3,
+      opacity: 0.8,
+    }).addTo(map);
+
+    routeLayers.push(polyline);
+  }
+>>>>>>> 7bc589d (push to github with readme)
 
   // Fit map to show all markers
   if (allCoords.length > 1) {
@@ -351,6 +482,39 @@ function initializeMap(depotLat, depotLon, routes) {
   }
 }
 
+<<<<<<< HEAD
+=======
+async function getRoadRouteCoordinates(routeCoords) {
+  if (!Array.isArray(routeCoords) || routeCoords.length < 2) {
+    return routeCoords;
+  }
+
+  const coordinatesParam = routeCoords
+    .map(([lat, lon]) => `${lon},${lat}`)
+    .join(";");
+
+  const osrmUrl = `https://router.project-osrm.org/route/v1/driving/${coordinatesParam}?overview=full&geometries=geojson&steps=false`;
+
+  try {
+    const response = await fetch(osrmUrl);
+    if (!response.ok) {
+      throw new Error(`OSRM request failed with status ${response.status}`);
+    }
+
+    const data = await response.json();
+    if (data.code !== "Ok" || !data.routes || data.routes.length === 0) {
+      throw new Error("OSRM did not return a valid route");
+    }
+
+    // Convert [lon, lat] from GeoJSON to Leaflet [lat, lon].
+    return data.routes[0].geometry.coordinates.map(([lon, lat]) => [lat, lon]);
+  } catch (error) {
+    console.warn("Falling back to straight-line route path:", error);
+    return routeCoords;
+  }
+}
+
+>>>>>>> 7bc589d (push to github with readme)
 async function resetVehicles() {
   const btn = document.querySelector('button[onclick="resetVehicles()"]');
   btn.disabled = true;
